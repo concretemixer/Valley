@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: e226aa94dc6212f439e9637cb9fe5a20
-timeCreated: 1498763886
+guid: d6daacdd2292f5f41bc5a0cbf456d8b5
+timeCreated: 1498764943
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: house_0
-    21300002: house_1
+    21300000: heroes_0
+    21300002: heroes_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -39,8 +39,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.1, y: 0.1}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 32
   alphaUsage: 1
@@ -88,28 +88,28 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: house_0
+      name: heroes_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 80
-        width: 128
-        height: 80
+        y: 96
+        width: 32
+        height: 32
       alignment: 9
-      pivot: {x: 0.125, y: 0}
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: house_1
+      name: heroes_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 128
-        height: 80
-      alignment: 9
-      pivot: {x: 0.125, y: 0.2}
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

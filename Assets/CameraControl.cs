@@ -11,6 +11,7 @@ public class CameraControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        return;
         if (Input.GetKeyDown(KeyCode.UpArrow))
             transform.position += Vector3.up;
         if (Input.GetKeyDown(KeyCode.DownArrow))
