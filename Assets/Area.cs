@@ -6,19 +6,17 @@ public class Area : MonoBehaviour {
 
     const int WALKABLE_LAYER = 8;
 
-    [SerializeField]
-    private GameObject helpersRoot;
-
     private int xMax = 0;
     private int yMax = 0;
     private int xMin = 0;
     private int yMin = 0;
 
     private int[,] grid;
+    private Trigger[,] triggers;
 
     // Use this for initialization
     void Start () {
-        foreach (var t in helpersRoot.GetComponentsInChildren<Transform>())
+        foreach (var t in GetComponentsInChildren<Transform>())
         {
             if (t.gameObject.layer == WALKABLE_LAYER)
             {
@@ -39,12 +37,18 @@ public class Area : MonoBehaviour {
         yMin--;
 
         grid = new int[xMax-xMin+1,yMax-yMin+1];
+        triggers = new  Trigger[xMax - xMin + 1, yMax - yMin + 1]; 
 
-        foreach (var t in helpersRoot.GetComponentsInChildren<Transform>())
+        foreach (var t in GetComponentsInChildren<Transform>())
         {
             if (t.gameObject.layer == WALKABLE_LAYER)
             {
                 grid[(int)t.position.x - xMin, (int)t.position.y-yMin] = 1;
+                if (t.gameObject.GetComponent<Trigger>())
+                {
+                    grid[(int)t.position.x - xMin, (int)t.position.y - yMin] = 2;
+                    triggers[(int)t.position.x - xMin, (int)t.position.y - yMin] = t.gameObject.GetComponent<Trigger>();
+                }
             }
         }
     }
@@ -58,4 +62,16 @@ public class Area : MonoBehaviour {
     {
         return grid[x-xMin,y-yMin] != 0;
     }
+
+    public bool IsTrigger(int x, int y)
+    {
+        return grid[x - xMin, y - yMin] == 2;
+    }
+
+    public void RunTrigger(int x, int y)
+    {
+        if (triggers[x - xMin, y - yMin] != null)
+            triggers[x - xMin, y - yMin].Run();
+    }
+
 }

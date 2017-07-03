@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hero : MonoBehaviour {
-
-    [SerializeField]
-    private Area area;
+    
+    public Area area;
 
     // Use this for initialization
     void Start () {
@@ -24,11 +23,13 @@ public class Hero : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.RightArrow))
             pos+= Vector3.right;
 
-        if (farm.IsFree((int)pos.x, (int)pos.y))
+        if (area.IsFree((int)pos.x, (int)pos.y))
         {
             transform.position = pos;
             Camera.main.transform.position = pos + Vector3.back*10;
         }
+
+        area.RunTrigger((int)pos.x, (int)pos.y);
 
     }
 }
